@@ -245,7 +245,7 @@ def parse_args():
                         default=train_inf['train_list'],
                         help='Dataset sample indices list.')
     parser.add_argument('--is_testing',type=bool,
-                        default=is_testing,
+                        default=True,
                         help='Script in testing mode.')
     parser.add_argument('--double_img',
                         type=bool,
