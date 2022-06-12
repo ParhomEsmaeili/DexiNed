@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#Ignore the pth file for the checkpoint of the model.
+
+checkpoints/BIPED/10/10_model_true.pth

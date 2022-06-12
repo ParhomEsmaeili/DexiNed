@@ -339,7 +339,7 @@ def main(args):
     tb_writer = None
     training_dir = os.path.join(args.output_dir,args.train_data)
     os.makedirs(training_dir,exist_ok=True)
-    checkpoint_path = os.path.join(args.output_dir, args.train_data, args.checkpoint_data)
+    checkpoint_path = "/content/drive/MyDrive/DexiNED/DexiNed/checkpoints/BIPED/10/10_model_true.pth" #checkpoints/BIPED/10/10_model.pth" #os.path.join(args.output_dir, args.train_data, args.checkpoint_data) #'/content/drive/MyDrive/DexiNED/DexiNed/checkpoints' 
     print('Checkpoint Path is: \n')
     print(f'{checkpoint_path}')
     print('\n')
