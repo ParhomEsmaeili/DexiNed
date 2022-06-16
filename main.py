@@ -204,8 +204,12 @@ def parse_args():
 
     TEST_DATA = DATASET_NAMES[parser.parse_args().choose_test_data] # max 8
     test_inf = dataset_info(TEST_DATA, is_linux=IS_LINUX)
-    test_dir = test_inf['data_dir']
+
+    bloop_check = os.path.join('boop','badoop','bloop')
+
+    test_dir = os.path.join('data', 'T1', test_inf['data_dir'],'RGB')
     is_testing =True#  current test -352-SM-NewGT-2AugmenPublish
+
 
     # Training settings
     TRAIN_DATA = DATASET_NAMES[0] # BIPED=0, MDBD=6
@@ -220,7 +224,7 @@ def parse_args():
                         help='the path to the directory with the input data.')
     parser.add_argument('--input_val_dir',
                         type=str,
-                        default=test_inf['data_dir'],
+                        default= test_dir, #test_inf['data_dir'],
                         help='the path to the directory with the input data for validation.')
     parser.add_argument('--output_dir',
                         type=str,
@@ -269,7 +273,7 @@ def parse_args():
                         help='Image height for testing.')
     parser.add_argument('--res_dir',
                         type=str,
-                        default='result',
+                        default= os.path.join('result', 'T1', test_inf['data_dir']), 
                         help='Result directory')
     parser.add_argument('--log_interval_vis',
                         type=int,
@@ -343,6 +347,10 @@ def main(args):
     print('Checkpoint Path is: \n')
     print(f'{checkpoint_path}')
     print('\n')
+
+
+
+
     if args.tensorboard and not args.is_testing:
         from torch.utils.tensorboard import SummaryWriter # for torch 1.4 or greather
         tb_writer = SummaryWriter(log_dir=training_dir)
@@ -382,6 +390,14 @@ def main(args):
                                       batch_size=args.batch_size,
                                       shuffle=True,
                                       num_workers=args.workers)
+
+    print('input argument directory /n')
+
+    print(args.input_val_dir)
+    print('/n')
+    print(args.test_data)
+
+    print('/n')
 
     dataset_val = TestDataset(args.input_val_dir,
                               test_data=args.test_data,

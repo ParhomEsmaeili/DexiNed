@@ -94,7 +94,7 @@ def dataset_info(dataset_name, is_linux=True):
                 'img_width': 512,
                 'test_list': None,
                 'train_list': None,
-                'data_dir': 'data',  # mean_rgb
+                'data_dir': 'T1_C1_L1_2', #'T1/T1_C1_L1_2', #'data/T1/T1_C1_L1_1/RGB',  # mean_rgb
                 'yita': 0.5
             },
             'DCD': {
@@ -150,7 +150,7 @@ def dataset_info(dataset_name, is_linux=True):
                         'img_width': 512,
                         'test_list': None,
                         'train_list': None,
-                        'data_dir': 'data',  # mean_rgb
+                        'data_dir': 'T1_C1_L1_2', #'T1/T1_C1_L1_2',  # mean_rgb
                         'yita': 0.5},
             'DCD': {'img_height': 240,
                     'img_width': 360,
